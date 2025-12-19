@@ -1,0 +1,40 @@
+{
+  "name": "@root/buildplate",
+  "version": "0.0.1",
+  "packageManager": "yarn@4.12.0",
+  "private": true,
+  "license": "AGPL-3.0",
+  "workspaces": [
+    "external/*",
+    "external/*/external/*",
+    "external/*/external/*/packages/*",
+    "external/*/external/*/plugins/*",
+    "external/*/packages/*",
+    "external/*/plugins/*",
+    "external/satori/adapters/*",
+    "external/koishi/plugins/*",
+    "external/koishi/plugins/database/*",
+    "packages/*",
+    "packages/@*/*",
+    "plugins/*",
+    "plugins/@*/*"
+  ],
+  "scripts": {
+    "new": "koishi-scripts new",
+    "setup": "koishi-scripts setup",
+    "clone": "koishi-scripts clone",
+    "build": "yakumo build",
+    "clean": "yakumo clean",
+    "bump": "yakumo version",
+    "dep": "yakumo upgrade",
+    "pub": "yakumo publish"
+  },
+  "devDependencies": {
+    "@hieuzest/koishi-buildtools": "workspace:*",
+    "yakumo": "^1.0.0"
+  },
+  "resolutions": {
+    "@hieuzest/koishi-buildtools": "workspace:*",
+    "@types/koa": "^2.0.0"
+  }
+}

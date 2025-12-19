@@ -1,0 +1,3 @@
+{
+  "extends": "@hieuzest/koishi-buildtools",
+}

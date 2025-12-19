@@ -1,0 +1,19 @@
+- name: '@hieuzest/yakumo'
+  config:
+    no-builtins: true
+    exclude:
+      - packages/buildtools
+    pipeline:
+      build:
+        - tsc
+        - esbuild
+        - client
+      clean:
+        - tsc --clean
+- name: yakumo-esbuild
+- name: yakumo-tsc
+- name: '@koishijs/client/lib'
+- name: yakumo/prepare
+- name: yakumo/upgrade
+- name: yakumo/publish
+- name: '@hieuzest/yakumo/run'
