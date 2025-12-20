@@ -1,0 +1,29 @@
+name: Publish Tag
+
+on:
+  workflow_call:
+
+jobs:
+  publish_tag:
+    if: |
+      !contains(github.event.head_commit.message, '[skip ci]') &&
+      !contains(github.event.head_commit.message, '[ci skip]')
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+      - name: Install
+        run: yarn --no-immutable
+      - name: Build
+        run: yarn build
+      - name: Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          yarn workspaces foreach --all exec 'git add -f lib || true; git add -f dist || true'
+          git commit -m "[skip ci] ${GITHUB_REF#refs/tags/}" || true
+          git tag -f "${GITHUB_REF#refs/tags/}"
+          git push -f origin ${GITHUB_REF}

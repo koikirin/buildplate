@@ -1,0 +1,73 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      enable-lint:
+        type: boolean
+        required: false
+        default: true
+      enable-test:
+        type: boolean
+        required: false
+        default: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Buildplate
+        uses: actions/checkout@v4
+        with:
+          repository: koikirin/buildplate
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          path: external/source
+      - name: Set up Node
+        uses: actions/setup-node@v4
+      - name: Install
+        run: yarn --no-immutable
+      - name: Build
+        run: yarn build
+
+  lint:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.enable-lint }}
+
+    steps:
+      - name: Check out Buildplate
+        uses: actions/checkout@v4
+        with:
+          repository: koikirin/buildplate
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          path: external/source
+      - name: Set up Node
+        uses: actions/setup-node@v4
+      - name: Install
+        run: yarn --no-immutable
+      - name: Lint
+        run: yarn yakumo run source -- lint
+
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.enable-test }}
+
+    steps:
+      - name: Check out Buildplate
+        uses: actions/checkout@v4
+        with:
+          repository: koikirin/buildplate
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          path: external/source
+      - name: Set up Node
+        uses: actions/setup-node@v4
+      - name: Install
+        run: yarn --no-immutable
+      - name: Test
+        run: yarn yakumo run source -- test

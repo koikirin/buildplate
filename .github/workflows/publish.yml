@@ -1,0 +1,21 @@
+name: Publish
+
+on:
+  push:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish_npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+      - name: Install
+        run: yarn --no-immutable
+      - name: Publish
+        run: yarn workspace @hieuzest/koishi-buildtools pub

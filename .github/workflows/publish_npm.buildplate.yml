@@ -1,0 +1,33 @@
+name: Publish NPM
+
+on:
+  workflow_call:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish_npm:
+    if: |
+      !contains(github.event.head_commit.message, '[skip ci]') &&
+      !contains(github.event.head_commit.message, '[ci skip]')
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Buildplate
+        uses: actions/checkout@v4
+        with:
+          repository: koikirin/buildplate
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          path: external/source
+      - name: Set up Node
+        uses: actions/setup-node@v4
+      - name: Install
+        run: yarn --no-immutable
+      - name: Build
+        run: yarn build
+      - name: Publish
+        run: yarn pub --debug

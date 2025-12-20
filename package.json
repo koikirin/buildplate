@@ -30,7 +30,21 @@
     "pub": "yakumo publish"
   },
   "devDependencies": {
-    "@hieuzest/koishi-buildtools": "workspace:*"
+    "@hieuzest/yakumo": "^0.3.13",
+    "@koishijs/client": "^5.30.11",
+    "@koishijs/scripts": "^4.6.1",
+    "@types/koa": "^2.15.0",
+    "@types/node": "^24.10.4",
+    "@types/react": "^18.3.27",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.23.1",
+    "esbuild-register": "npm:@shigma/esbuild-register@^1.1.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "yakumo": "^1.0.0",
+    "yakumo-esbuild": "^1.0.0",
+    "yakumo-tsc": "^1.0.0",
+    "yml-register": "^1.2.5"
   },
   "resolutions": {
     "@hieuzest/koishi-buildtools": "workspace:*",

@@ -1,3 +1,4 @@
 {
-  "extends": "@hieuzest/koishi-buildtools",
+  "extends": "@hieuzest/koishi-buildtools/tsconfig",
+  "compilerOptions": {},
 }

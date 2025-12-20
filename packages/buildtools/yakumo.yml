@@ -1,0 +1,6 @@
+- name: '@hieuzest/yakumo'
+  config:
+    no-builtins: true
+- name: yakumo/prepare
+- name: yakumo/upgrade
+- name: yakumo/publish

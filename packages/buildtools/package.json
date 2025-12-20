@@ -1,23 +1,32 @@
 {
   "name": "@hieuzest/koishi-buildtools",
   "description": "Build tools for Koishi plugin workspace",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "type": "module",
   "main": "tsconfig.json",
   "bin": {
-    "yakumo": "yakumo.js"
+    "yakumo": "yakumo-cli.js"
   },
   "files": [
     "tsconfig.json",
     "tsconfig.client.json",
-    "yakumo.js"
+    "yakumo-cli.js"
   ],
   "exports": {
     ".": "./tsconfig.json",
+    "./tsconfig": "./tsconfig.json",
     "./tsconfig.json": "./tsconfig.json",
+    "./tsconfig.client": "./tsconfig.client.json",
     "./tsconfig.client.json": "./tsconfig.client.json"
   },
   "license": "MIT",
+  "scripts": {
+    "pub": "yakumo publish --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koikirin/buildplate.git"
+  },
   "peerDependencies": {
     "koishi": "^4.18.9"
   },
