@@ -1,11 +1,16 @@
 {
   "name": "@hieuzest/koishi-buildtools",
   "description": "Build tools for Koishi plugin workspace",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "type": "module",
   "main": "tsconfig.json",
+  "bin": {
+    "yakumo": "yakumo.js"
+  },
   "files": [
     "tsconfig.json",
-    "tsconfig.client.json"
+    "tsconfig.client.json",
+    "yakumo.js"
   ],
   "exports": {
     ".": "./tsconfig.json",

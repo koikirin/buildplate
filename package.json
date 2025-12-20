@@ -30,8 +30,7 @@
     "pub": "yakumo publish"
   },
   "devDependencies": {
-    "@hieuzest/koishi-buildtools": "workspace:*",
-    "yakumo": "^1.0.0"
+    "@hieuzest/koishi-buildtools": "workspace:*"
   },
   "resolutions": {
     "@hieuzest/koishi-buildtools": "workspace:*",
