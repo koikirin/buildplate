@@ -1,7 +1,7 @@
 {
   "name": "@hieuzest/koishi-buildtools",
   "description": "Build tools for Koishi plugin workspace",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "main": "tsconfig.json",
   "bin": {
@@ -44,6 +44,7 @@
     "typescript": "^5.9.3",
     "yakumo": "^1.0.0",
     "yakumo-esbuild": "^1.0.0",
+    "yakumo-resolution": "^0.1.0",
     "yakumo-tsc": "^1.0.0",
     "yml-register": "^1.2.5"
   }
