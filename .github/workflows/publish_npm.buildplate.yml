@@ -26,7 +26,11 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
       - name: Install
-        run: yarn --no-immutable
+        run: |
+          yarn --no-immutable
+          yarn yakumo prepare
+          yarn yakumo resolution
+          yarn --no-immutable
       - name: Build
         run: yarn build
       - name: Publish

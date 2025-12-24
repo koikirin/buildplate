@@ -28,7 +28,11 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
       - name: Install
-        run: yarn --no-immutable
+        run: |
+          yarn --no-immutable
+          yarn yakumo prepare
+          yarn yakumo resolution
+          yarn --no-immutable
       - name: Build
         run: yarn build
 
@@ -48,7 +52,11 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
       - name: Install
-        run: yarn --no-immutable
+        run: |
+          yarn --no-immutable
+          yarn yakumo prepare
+          yarn yakumo resolution
+          yarn --no-immutable
       - name: Lint
         run: yarn yakumo run source -- lint
 
@@ -68,6 +76,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
       - name: Install
-        run: yarn --no-immutable
+        run: |
+          yarn --no-immutable
+          yarn yakumo prepare
+          yarn yakumo resolution
+          yarn --no-immutable
       - name: Test
         run: yarn yakumo run source -- test
