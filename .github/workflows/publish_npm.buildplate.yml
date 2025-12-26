@@ -31,6 +31,9 @@ jobs:
           yarn yakumo prepare
           yarn yakumo resolution
           yarn --no-immutable
+      - name: Check visibility
+        if: github.event.repository.private == true
+        run: yarn config set npmPublishProvenance false
       - name: Build
         run: yarn build
       - name: Publish
