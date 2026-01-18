@@ -15,6 +15,6 @@
 - name: '@koishijs/client/lib'
 - name: yakumo/prepare
 - name: yakumo/upgrade
-- name: yakumo/publish
+- name: '@hieuzest/yakumo/publish'
 - name: '@hieuzest/yakumo/run'
 - name: yakumo-resolution
